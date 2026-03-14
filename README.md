@@ -12,7 +12,7 @@ I had a 180-page handwritten notebook full of my grandmother's French-Canadian c
 
 Starting from raw photos of handwritten recipe pages, this pipeline:
 
-1. **Transcribes** each handwritten page using free AI vision models (Google Gemini free tier + Ollama local models)
+1. **Transcribes** each handwritten page using free AI vision models (Gemini 3.0 Flash free tier + Ollama Qwen 3.5 397b-cloud)
 2. **Parses** the transcribed text into structured recipe data (title, ingredients, preparation steps, notes)
 3. **Validates & corrects** the parsed recipes using a free LLM quality-check pass
 4. **Generates** a beautifully styled HTML cookbook with cover page, table of contents, and individually formatted recipe cards
@@ -55,7 +55,7 @@ The project is a **4-stage pipeline**, each stage being an independent Python sc
 Transcribes handwritten notebook page images into a clean, Markdown-formatted PDF.
 
 - **Image preprocessing**: CLAHE contrast enhancement, sharpening, upscaling for better OCR
-- **Multi-model fallback**: Gemini Flash → Ollama (qwen3.5:397b-cloud) → Gemini 2.0 Flash
+- **Multi-model fallback**: Gemini 3.0 Flash → Ollama Qwen 3.5 397b-cloud → free OpenRouter models (Nemotron, StepFun)
 - **Hallucination detection**: Validates transcriptions aren't English, aren't repetitive, and aren't AI commentary
 - **Sleep/wake recovery**: Detects macOS sleep cycles and automatically resets stale connections
 - **Resume support**: Progress saved after each page — survives crashes, reboots, and interruptions
@@ -67,7 +67,7 @@ Extracts structured recipe data from the transcription PDF.
 
 - **Text chunking**: Splits the merged transcription into individual recipe chunks using heading detection
 - **LLM-powered extraction**: Each chunk is sent to an AI model that returns structured JSON with `titre`, `ingredients`, `preparation`, and `notes`
-- **Multi-provider support**: Gemini, Ollama, and OpenRouter API backends
+- **Multi-provider support**: Gemini, Ollama, and OpenRouter (free models like Nemotron Super, StepFun)
 - **Deduplication**: Detects and merges duplicate recipes, keeping the most complete version
 - **Resume support**: Can restart from where it left off using a progress file
 
