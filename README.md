@@ -1,8 +1,6 @@
 # 📖 Handwritten French Recipe Transcriber
 
-**Transform a grandmother's handwritten French recipe notebook into a beautifully formatted digital cookbook — automatically.**
-
-This project uses AI vision models to transcribe handwritten French cooking recipes from scanned notebook photos, then structures the data into a clean JSON dataset and generates a gorgeous, print-ready HTML cookbook.
+I had a 180-page handwritten notebook full of my grandmother's French-Canadian cooking recipes, and I wanted to turn it into a proper book. So I built this — an AI-powered pipeline that reads handwritten French recipes from scanned photos and produces a beautifully formatted digital cookbook, **using only free AI models**.
 
 <p align="center">
   <img src="docs/cookbook_cover.png" alt="Cookbook Cover — Les Recettes de Grand-Maman" width="500">
@@ -14,10 +12,12 @@ This project uses AI vision models to transcribe handwritten French cooking reci
 
 Starting from raw photos of handwritten recipe pages, this pipeline:
 
-1. **Transcribes** each handwritten page using AI vision models (Gemini + Ollama)
+1. **Transcribes** each handwritten page using free AI vision models (Google Gemini free tier + Ollama local models)
 2. **Parses** the transcribed text into structured recipe data (title, ingredients, preparation steps, notes)
-3. **Validates & corrects** the parsed recipes using an LLM quality-check pass
+3. **Validates & corrects** the parsed recipes using a free LLM quality-check pass
 4. **Generates** a beautifully styled HTML cookbook with cover page, table of contents, and individually formatted recipe cards
+
+The entire pipeline runs on **free-tier APIs and open-source local models** — no paid subscriptions required.
 
 The result? **236 family recipes** — from *Soupe à l'oignon* to *Bœuf Bourguignon* — preserved in a digital format that can be searched, printed, and shared.
 
@@ -96,8 +96,10 @@ Generates a beautifully typeset HTML cookbook.
 ### Prerequisites
 
 - **Python 3.10+**
-- **Gemini API Key** (free tier available at [Google AI Studio](https://aistudio.google.com/apikey))
-- **Ollama** (optional fallback — [install here](https://ollama.com))
+- **Gemini API Key** — free, no credit card needed ([Google AI Studio](https://aistudio.google.com/apikey))
+- **Ollama** (optional free fallback — [install here](https://ollama.com))
+
+> 💡 **100% free** — all models used in this project are available on free tiers or run locally via Ollama.
 
 ### Installation
 
@@ -245,6 +247,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🙏 Acknowledgments
 
-Built to preserve **Les Recettes de Grand-Maman** — a handwritten French-Canadian recipe notebook passed down through generations. 236 recipes, from salads to desserts, now digitized and shareable with the whole family.
+Built to preserve **Les Recettes de Grand-Maman** — a 180-page handwritten French-Canadian recipe notebook passed down through generations. 236 recipes, from salads to desserts, now digitized and shareable with the whole family. The entire project was completed using only free AI models.
 
 *Recettes de famille, transmises avec amour.* ❤️
